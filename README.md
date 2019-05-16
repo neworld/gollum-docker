@@ -20,6 +20,16 @@ Also you could provide more config options:
 docker run --name gollum -p 4567:4567 -v $HOME/wikidata:/root/wikidata neworldlt/gollum --allow-uploads=dir
 ```
 
+You could run Gollum as daemon:
+```
+docker run --name gollum -d \
+    -p 4567:4567 \
+    -v $HOME/wikidata/wiki:/root/wikidata \
+    --restart=always \
+    neworldlt/gollum \
+    --allow-uploads=dir
+```
+
 ### Licence
 
 ```
