@@ -12,19 +12,20 @@ And you could find Gollum at http://localhost:4567.
 
 If you want use Gollum for bigger purpose than tests, you probably want to persist your data:
 ```
-docker run --name gollum -p 4567:4567 -v $HOME/wikidata:/root/wikidata neworldlt/gollum
+docker run --name gollum -p 4567:4567 -v $HOME/wikidata:/opt/wikidata neworldlt/gollum
 ```
 
 Also you could provide more config options:
 ```
-docker run --name gollum -p 4567:4567 -v $HOME/wikidata:/root/wikidata neworldlt/gollum --allow-uploads=dir
+docker run --name gollum -p 4567:4567 -v $HOME/wikidata:/opt/wikidata neworldlt/gollum --allow-uploads=dir
 ```
 
 You could run Gollum as daemon:
 ```
 docker run --name gollum -d \
     -p 4567:4567 \
-    -v $HOME/wikidata/wiki:/root/wikidata \
+    -v $HOME/wikidata/wiki:/opt/wikidata \
+    -u $(id -u):$(id -g) \
     --restart=always \
     neworldlt/gollum \
     --allow-uploads=dir

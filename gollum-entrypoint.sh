@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd /root/gollum
-bundle exec gollum /root/wikidata $@
+cd $GOLLUM_PATH
+bundle exec gollum $WIKIDATA_PATH $@
